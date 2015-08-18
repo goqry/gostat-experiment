@@ -25,7 +25,7 @@ func main() {
 		}
 		fset := token.NewFileSet()
 		file, err := parser.ParseFile(fset, path, nil, 0)
-		fmt.Println(path)
+		//		fmt.Println(path)
 		if err != nil {
 			return nil
 		}
@@ -37,7 +37,7 @@ func main() {
 		fileCount++
 
 		ast.Inspect(file, func(node ast.Node) bool {
-			if f, ok := node.(*ast.CallExpr); ok {
+			if _, ok := node.(*ast.CallExpr); ok {
 				count++
 				//				startPos, endPos := fset.Position(f.Pos()), fset.Position(f.End())
 				//				fmt.Println(string(fileData[startPos.Offset:endPos.Offset]))
